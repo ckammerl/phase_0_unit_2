@@ -1,6 +1,5 @@
 # U2.W4: 1_acc_group_solution
 
-
 # I worked on this challenge [by myself].
 
 # 2. Pseudocode
@@ -26,6 +25,7 @@
 
 
 # 3. Initial Solution
+
 def create_groups(arr)
 	group = []
 	unit_1 = arr.each_slice(4).to_a { |x| group.push(x) }
@@ -45,7 +45,10 @@ def create_groups(arr)
 
 	return result
 end 
-	
+
+create_groups(fence_lizards)
+
+
 fence_lizards = ["Adam Dziuk", "Adam Ryssdal", "Aki Suzuki", "Allison Wong", "Andra Lally",
 		"Andrew McDonald", "Anup Pradhan", "CJ Jameson", "Christopher Aubuchon", 
 		"Clark Hinchcliff", "Devin Johnson", "Dominick Oddo", "Dong Kevin Kang", "Eiko Seino",
@@ -54,14 +57,45 @@ fence_lizards = ["Adam Dziuk", "Adam Ryssdal", "Aki Suzuki", "Allison Wong", "An
 		"William Butler Bushyhead", "Yuzu Saijo", "Christiane Kammerl"]
 
 
-create_groups(fence_lizards)
+# 4. Refactored Solution (different solution, discussed it with a friend)
 
-# 4. Refactored Solution
+=begin
+def create_unit(arr, min_group_size)
+	unit = []
+	arr_shuffle = arr.shuffle
 
-# TBD 
+	num_group = arr_shuffle.length / min_group_size #6
+	num_group.times do unit.push([]) end 
+	
+	for i in (0..arr_shuffle.length - 1)
+		group_index = i % num_group
+		person = arr_shuffle[i]
+		unit[group_index].push(person)
+	end 
 
+	return unit
+end
+
+def create_multiple_units(arr, min_group_size, num_units)
+	multiple_units = []
+	x = 0
+	num_units.times do 
+		unit = create_unit(arr, min_group_size)
+		multiple_units.push(unit) 
+		x += 1
+		puts "Accountability groups - unit_#{x}: #{unit.inspect}"
+		puts ""
+	end
+
+	return multiple_units
+end
+
+
+create_multiple_units(fence_lizards, 6, 3)
+=end
 
 # 1. DRIVER TESTS GO BELOW THIS LINE
+
 puts (create_groups(fence_lizards)).class == Array
 puts ""
 puts create_groups(fence_lizards).length == 3
