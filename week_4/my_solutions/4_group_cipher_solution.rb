@@ -92,7 +92,9 @@ def north_korean_cipher(coded_message)
         break
       end 
     end
-    if not found_match  # no deciphering of x needed; x as element (individual string character) of the input array will be pushed into the array decoded_sentence 
+    # if none of the three if statements above are executed,no deciphering of x needed; x as element 
+    # (individual string character) of the input array will be pushed into the array decoded_sentence 
+    if not found_match  
       decoded_sentence << x
     end
   end
@@ -140,7 +142,7 @@ def north_korean_cipher(coded_message)
         decoded_sentence << cipher[y]
         found_match = true
         break  
-      elsif x == "@" || x == "#" || x == "$" || x == "%"|| x == "^" || x == "&"|| x =="*" #What the heck is this doing?
+      elsif x == "@" || x == "#" || x == "$" || x == "%"|| x == "^" || x == "&"|| x =="*" 
         decoded_sentence << " "
         found_match = true
         break
@@ -150,16 +152,31 @@ def north_korean_cipher(coded_message)
         break
       end 
     end
+
+=begin
+adding shorter ALTERNATIVE SOLUTION
+ input_as_arr_of_letters.each do |x| 
+    found_match = false  
+    cipher.each_key do |y| 
+      decoded_sentence << cipher[y] if x == y
+      decoded_sentence << " " if x.match(/[@#%&\$\^\*]/)
+      decoded_sentence << x if (0..9).to_a.include?(x)
+      found_match = true if x == y || x.match(/[@#%&\$\^\*]/) || (0..9).to_a.include?(x)
+      break if found_match == true
+    end
+=end 
+
+
     if not found_match  
       decoded_sentence << x
     end
   end
-  decoded_sentence = decoded_sentence.join("")
+  revealed_message = decoded_sentence.join("") # changed var name
  
-  if decoded_sentence.match(/\d+/) 
-    decoded_sentence.gsub!(/\d+/) { |num| num.to_i / 100 } 
+  if revealed_message.match(/\d+/) 
+    revealed_message.gsub!(/\d+/) { |num| num.to_i / 100 } 
   end  
-  return decoded_sentence      
+  return revealed_message    
 end
 
 
