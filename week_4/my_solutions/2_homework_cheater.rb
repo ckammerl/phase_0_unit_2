@@ -107,19 +107,13 @@ def essay_writer(title, subject, year, thesis_statement)
 	return template
 end
 
+
 # I looked up how to write multiple line strings using "TEXT"\
-puts essay_writer("famous discoverer", person1, "(born between October 31, 1450 and October 30, 1451 – 20 May 1506) was an Italian explorer, "\
+puts essay_writer("famous discoverer", "Christopher Columbus", 1492 "(born between October 31, 1450 and October 30, 1451 – 20 May 1506) was an Italian explorer, "\
                                                       "navigator, and colonizer, born in the Republic of Genoa (Italy). Under the auspices ofthe Catholic "\
                                                       "Monarchs of Spain, he completed four voyages across the Atlantic Ocean that led to general "\
                                                       "European awareness of the American continents. Those voyages, and his efforts to establish "\
                                                       "permanent settlements on the island of Hispaniola, initiated the Spanish colonization of the New World.")
-
-puts " "
-
-puts essay_writer("famous scientists", person2, "was a Polish and naturalized-French physicist and chemist (7 November 1867 – 4 July 1934) who conducted pioneering "\
-													  "research on radioactivity. She was the first woman to win a Nobel Prize in 1903. She was also the first woman to become "\
-													  "a professor at the University of Paris, and in 1995 became the first woman to be entombed on her own merits in the Panthéon in Paris.")
-
 
 
 
@@ -182,6 +176,12 @@ end
 
 person1 = Person.new("Christoph Columbus", "He", 1492)
 person2 = Person.new("Marie Curie", "She", 1903)
+
+
+puts essay_writer("famous scientists", person2, "was a Polish and naturalized-French physicist and chemist (7 November 1867 – 4 July 1934) who conducted pioneering "\
+													  "research on radioactivity. She was the first woman to win a Nobel Prize in 1903. She was also the first woman to become "\
+													  "a professor at the University of Paris, and in 1995 became the first woman to be entombed on her own merits in the Panthéon in Paris.")
+
 
 
 # 1. DRIVER TESTS GO BELOW THIS LINE
