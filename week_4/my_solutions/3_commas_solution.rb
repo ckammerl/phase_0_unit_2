@@ -107,8 +107,21 @@ p seperate_comma(9999111) == "9,999,111"
 
 
 # 5. Reflection 
+=begin
+What parts of your strategy worked? What problems did you face?
+I didn't face any problems in this challenge. After I solved the problem using a case statement, I 
+saw the how the num_len is linked to the index num to insert the comma. I was able to shorten the code and to 
+automate parts of the  process in the refactored solution.
 
+What questions did you have while coding? What resources did you find to help you answer them?
+I looked up ruby-doc.org in order to find a build-in method that helps me to insert the comma at specific index num:
 
+- Array: .insert(index, obj) => arr http://www.ruby-doc.org/core-2.1.1/Array.html#method-i-insert
 
+How confident are you with each of the learning objectives? - confident
 
+Which parts of the challenge did you enjoy?
+all of it
+
+=end
 
