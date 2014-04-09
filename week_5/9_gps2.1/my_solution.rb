@@ -62,6 +62,27 @@ p bakery_num(41, "cake") == "You need to make 5 pie(s), 0 cake(s), and 1 cookie(
 
 
 #  Reflection 
+=begin
+What parts of your strategy worked? What problems did you face?
+We had trouble understanding each part of the code and although we wrote a working refactored solution at the end,
+it is a slightly different code than the original one. In order to make our refactored solution run, we had to adjust the
+driver code as well. The output in terms of values is still the same, however our solution does only ouput the qty of the key cake OR the key pie 
+together with the qty of the key cookie as we discovered that one of the two, cake or pie, is always set to zero. Our return message omits the one whose qty is zero.
+
+What questions did you have while coding? What resources did you find to help you answer them?
+We used irb to test the original code and to test our solution. We did it step by step and that helped us a lot to come up with the solution above. 
+I also looked up the Hash# values_at() because I forgot what it returns.
+
+- Hash: values_at(key) used to access the hash via the key in order to find the corresponding value; returns an array!
+http://www.ruby-doc.org/core-2.1.1/Hash.html#method-i-values_at
+
+What concepts are you having trouble with, or did you just figure something out? If so, what?
+I have troubles identifying the role and impact, and therefore when writing code, to identify the right place and moment of setting a var equal to false first and then to continue with a conditional 
+statement which allows to set the var to true.
+
+How confident are you with each of the learning objectives?
+I felt very confident before but after finishing this challenge, I recognized that I still have to read and program a good bunch to fully understand the syntax.
 
 
+=end
 
