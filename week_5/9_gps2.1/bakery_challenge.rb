@@ -20,28 +20,29 @@ def bakery_num(num_of_people, fav_food)
   fav_food = k
   end
   end
+
   if has_fave == false
-  raise ArgumentError.new("You can't make that food")
+    raise ArgumentError.new("You can't make that food")
   else
-  fav_food_qty = my_list.values_at(fav_food)[0]
-  if num_of_people % fav_food_qty == 0
-    num_of_food = num_of_people / fav_food_qty
-    return "You need to make #{num_of_food} #{fav_food}(s)."
-  else num_of_people % fav_food_qty != 0
-    while num_of_people > 0
-    if num_of_people / my_list["pie"] > 0
-    pie_qty = num_of_people / my_list["pie"]
-    num_of_people = num_of_people % my_list["pie"]
-    elsif num_of_people / my_list["cake"] > 0
-    cake_qty = num_of_people / my_list["cake"]
-    num_of_people = num_of_people % my_list["cake"]
-    else
-    cookie_qty = num_of_people
-    num_of_people = 0
-    end
-    end
-    return "You need to make #{pie_qty} pie(s), #{cake_qty} cake(s), and #{cookie_qty} cookie(s)."
-    end
+    fav_food_qty = my_list.values_at(fav_food)[0]
+      if num_of_people % fav_food_qty == 0
+        num_of_food = num_of_people / fav_food_qty
+        return "You need to make #{num_of_food} #{fav_food}(s)."
+      else num_of_people % fav_food_qty != 0
+        while num_of_people > 0
+          if num_of_people / my_list["pie"] > 0 
+             pie_qty = num_of_people / my_list["pie"]
+             num_of_people = num_of_people % my_list["pie"] 
+          elsif num_of_people / my_list["cake"] > 0 
+              cake_qty = num_of_people / my_list["cake"]
+              num_of_people = num_of_people % my_list["cake"]
+          else
+              cookie_qty = num_of_people
+              num_of_people = 0
+          end
+        end
+        return "You need to make #{pie_qty} pie(s), #{cake_qty} cake(s), and #{cookie_qty} cookie(s)."
+      end
   end
 end
  
