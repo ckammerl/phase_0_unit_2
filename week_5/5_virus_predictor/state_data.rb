@@ -1,8 +1,17 @@
 #population density is number of people per square mile as of 2012
 #this data is updated every year with estimates from a 10 year census 
 
+# STATE_DATE is a hash whose keys are strings and the corresponding values are hashes themselves
+# looking at the "values hash", keys are defined as :symbols, the corresponding values are integer
+# => "strings" are mutable, i.e. I can change the assigned value after the frist assignment (using .upcase, .push etc)
+# => :symbols are immutable; 
 
-STATE_DATA = {  "Alabama" => {population_density: 94.65, population: 4822023, region: 5, regional_spread: 3},
+# http://www.reactive.io/tips/2009/01/11/the-difference-between-ruby-symbols-and-strings/
+# in contrast to "strings", each unique :symbol will be saved in memory; it can therefore be re-used; and you can see all your used :symbols by calling
+# the class method Symbol.all_symbols.inspect - The all_symbols class method will return an Array of every Symbol currently 
+# used in your program. Every time you create a new Symbol, it is also put here.
+
+STATE_DATA = {  "Alabama" => {population_density: 94.65, population: 4822023, region: 5, regional_spread: 3}, 
                 "Alaska" => {population_density: 1.1111, population: 731449, region: 10, regional_spread: 9},
                 "Arizona" => {population_density: 57.05, population: 6553255, region: 8, regional_spread: 8},
                 "Arkansas" => {population_density: 56.43, population: 2949131, region: 7, regional_spread: 5},
