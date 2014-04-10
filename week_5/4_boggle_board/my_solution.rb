@@ -1,6 +1,6 @@
 # U2.W5: A Nested Array to Model a Boggle Board
 
-# I worked on this challenge [by myself, with: ].
+# I worked on this challenge [by myself].
 
 boggle_board = [["b", "r", "a", "e"],
                 ["i", "o", "d", "t"],
@@ -28,9 +28,15 @@ boggle_board = [["b", "r", "a", "e"],
 # Part 2: Write a method that takes a row number and returns all the elements in the row.  
 
 # Pseudocode
+# WRITE a method #get_row which takes one argument "row"; "row" is an integer defining the index 
+# 
 
 # Initial Solution
+def get_row(row)
+	
+end 
 
+puts get_row(3)
 
 # Refactored Solution
 
