@@ -74,8 +74,7 @@ class CreditCard
         cal.push(x.to_i)
       end
     }
-    @doubled = cal
-    return @doubled    #arr with 16 elements (integers)
+    return cal    #arr with 16 elements (integers)
   end
 
   def sum
@@ -90,8 +89,8 @@ class CreditCard
       end
     }
 
-    @sum = cal.inject {|sum, x| sum += x}    #cal = arr of 16  integers
-    return @sum # 70
+    result = cal.inject {|sum, x| sum += x}    #cal = arr of 16  integers
+    return result # 70
   end
 
   def check_card
@@ -130,8 +129,8 @@ class CreditCard
         cal.push(x.to_i)
       end
     }
-    @doubled = cal
-    return @doubled    #arr with 16 elements (integers)
+  
+    return cal   #arr with 16 elements (integers)
   end
 
   def sum
@@ -146,8 +145,8 @@ class CreditCard
       end
     }
 
-    @sum = cal.inject {|sum, x| sum += x}    #cal = arr of 16  integers
-    return @sum #70
+    result = cal.inject {|sum, x| sum += x}    #cal = arr of 16  integers
+    return result #70
   end
 
   def check_card
