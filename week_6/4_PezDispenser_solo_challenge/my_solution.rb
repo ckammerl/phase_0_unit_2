@@ -141,13 +141,13 @@ I looked up the difference between #shif and #unshift as I always confuse which 
 I also looked up the class method arity to broaden my assertions
 
 Array - #shift http://www.ruby-doc.org/core-2.1.1/Array.html#method-i-shift
-Class::arity - http://www.ruby-doc.org/core-2.1.1/Method.html#method-i-arity
+Method - #arity - http://www.ruby-doc.org/core-2.1.1/Method.html#method-i-arity
 => Returns an indication of the number of arguments accepted by a (instance)method. 
 => Returns a nonnegative integer for methods that take a fixed number of arguments. 
 => For Ruby methods that take a variable number of arguments (*arg), returns -n-1, where n is the number of required arguments. 
 
 Did you learn any new skills or tricks?
-using Class::arity; but I need more practice to get a hang of it
+using Method #arity; but I need more practice to get the hang of it
 
 How confident are you with each of the learning objectives?
 Implement a basic Ruby class and identify when to use instance variables - confident
