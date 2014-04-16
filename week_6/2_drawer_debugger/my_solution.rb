@@ -2,7 +2,6 @@
 
 
 # I worked on this challenge with Jon Pabico.
-
 ## Directions
 =begin 
 1. Format the code to indent it properly
@@ -16,9 +15,6 @@ Run the code from the console. You should encounter 5 errors before it will run 
 =end
 
 # 2. Original Code
-
-
-
 
 class Drawer
 
@@ -40,25 +36,40 @@ class Drawer
     end 
 
     def add_item(item)
-        @contents << item
+        if item.clean == false
+            puts "Clean item first!"
+        else
+            @contents << item
+        end
     end
 
     def remove_item(item = @contents.pop) #what is `#pop` doing?
         @contents.delete(item)
+        return item
     end
 
     def dump  # what should this method return?
-       puts "Your drawer is empty."
+       if @contents.empty? == false
+           puts "Your drawer is now empty."
+           return @contents.clear
+       else
+           puts "Your drawer is already empty."
+           return @contents
+       end 
     end
 
     def view_contents
-        puts "The drawer contains:"
-        @contents.each {|silverware| puts "- " + silverware.type }
+        if @contents.empty? == true
+            puts "Your drawer contains nothing."
+        else
+            puts "The drawer contains:"
+            @contents.each {|silverware| puts "- " + silverware.type }
+        end
     end
 end
 
 class Silverware
-    attr_reader :type
+    attr_reader :type, :clean
 
 # Are there any more methods needed in this class?
 
@@ -75,74 +86,61 @@ class Silverware
     def clean_silverware
         @clean = true
     end
-
 end
 
 
 knife1 = Silverware.new("knife")
+spoon = Silverware.new("spoon")
+fork = Silverware.new("fork")
 
 silverware_drawer = Drawer.new
 silverware_drawer.add_item(knife1) 
-silverware_drawer.add_item(Silverware.new("spoon"))
-silverware_drawer.add_item(Silverware.new("fork")) 
+silverware_drawer.add_item(spoon)
+silverware_drawer.add_item(fork) 
 silverware_drawer.view_contents
 
-silverware_drawer.remove_item
+removed_fork = silverware_drawer.remove_item
+removed_fork.eat
+removed_fork.clean_silverware
+silverware_drawer.add_item(removed_fork)
 silverware_drawer.view_contents
+
+removed_spoon = silverware_drawer.remove_item(spoon)
+removed_spoon.eat
+silverware_drawer.add_item(removed_spoon)
+
 sharp_knife = Silverware.new("sharp_knife")
-
-
 silverware_drawer.add_item(sharp_knife)
-
-silverware_drawer.view_contents
-
 removed_knife = silverware_drawer.remove_item(sharp_knife)
 removed_knife.eat
 removed_knife.clean_silverware 
+
+silverware_drawer.view_contents
 
 silverware_drawer.view_contents
 silverware_drawer.dump
 silverware_drawer.view_contents #What should this return?
 
-removed_fork = silverware_drawer.remove_item("fork") 
-removed_fork.eat 
 
 
-=begin
-	
-silverware_drawer = Drawer.new
+#BONUS SECTION
+puts fork.clean
 
-#fork
-fork = Silverware.new("fork") 
-silverware_drawer.add_item(fork)
-silverware_drawer.remove_item(fork)
-fork.eat
-fork.clean_silverware
-silverware_drawer.add_item(fork)
-silverware_drawer.view_contents
+# DRIVER TESTS GO BELOW THIS LINE
+fork = Silverware.new("fork")
 
-#knife
-knife1 = Silverware.new("knife")
-silverware_drawer.add_item(knife1) 
-silverware_drawer.view_contents
-
-#spoon
-silverware_drawer.add_item(Silverware.new("spoon"))
-silverware_drawer.view_contents
+fork.class == Silverware
 
 
-#sharp_knife
-sharp_knife = Silverware.new("sharp_knife")
-silverware_drawer.add_item(sharp_knife)
+def assert
+  raise "Assertion failed" unless yield 
+end 
 
-removed_knife = silverware_drawer.remove_item(sharp_knife)
-removed_knife.eat
-removed_knife.clean_silverware 
-silverware_drawer.view_contents
+assert { fork.class == Silverware }
+assert { silverware_drawer.class == Drawer }
+assert { silverware_drawer.class != Silverware }
+assert { silverware_drawer.dump.empty? }
+assert { silverware_drawer.remove_item("fork") == "fork" }
 
 
-silverware_drawer.remove_item #?
-
-silverware_drawer.dump #?not sure when to call that
-	
-=end
+# 5. Reflection 
