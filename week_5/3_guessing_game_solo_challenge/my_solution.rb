@@ -80,10 +80,11 @@ class GuessingGame
   end 
 
   def guess(num) # changed param name to num
-  	@solved = false #writing it before the if statement
+  	#@solved = false #writing it before the if statement but at the end commented it out as 
+  							     # is it redundant with line 79	
    if num < @answer
      puts "Your guess #{num} is smaller than the correct number."
-     return :low
+     return :low #keeping keyword return to improve readability; writing the keyword is not necessary though as a method always implicitly returns its last value
    elsif num > @answer
      puts "Your guess #{num} is greater than the correct number."
      return :high
